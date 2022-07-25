@@ -157,6 +157,7 @@ function logger(/* func, logFunc */) {
   //   func(...args);
   //   logFunc(`${func.name}(${args.join(', ')}) ends`);
   // };
+  //
 }
 
 
