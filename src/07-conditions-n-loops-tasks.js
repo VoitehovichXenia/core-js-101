@@ -492,29 +492,19 @@ function getMatrixProduct(m1, m2) {
  *    [    ,   ,    ]]
  *
  */
-function evaluateTicTacToePosition(/* position */) {
-  throw new Error('Not implemented');
-  // const diagonal = [];
-  // const reverseDiagonal = [];
-  // const vb = [...position];
-  // function winner(row) {
-  //   return row.every((item, i, arr) => item === arr[0]);
-  // }
-  // for (let i = 0; i < vb.length; i += 1) {
-  //   if (winner(vb[i])) return vb[i][0];
-  //   const column = [];
-  //   for (let k = 0; k < vb[i].length; k += 1) {
-  //     column.push(vb[k][i]);
-  //     if (k === i) diagonal.push(vb[k][i]);
-  //   }
-  //   for (let m = vb[i].length - 1; m >= 0; m -= 1) {
-  //     if (m === vb[i].length - 1 - i) reverseDiagonal.push(vb[i][m]);
-  //   }
-  //   if (winner(column)) return column[0];
-  // }
-  // if (winner(diagonal)) return diagonal[0];
-  // if (winner(reverseDiagonal)) return reverseDiagonal[0];
-  // return undefined;
+function evaluateTicTacToePosition(position) {
+  function isWinner(field, symbol) {
+    if (field[0][0] === symbol && field[0][1] === symbol && field[0][2] === symbol) return symbol;
+    if (field[1][0] === symbol && field[1][1] === symbol && field[1][2] === symbol) return symbol;
+    if (field[2][0] === symbol && field[2][1] === symbol && field[2][2] === symbol) return symbol;
+    if (field[0][0] === symbol && field[1][0] === symbol && field[2][0] === symbol) return symbol;
+    if (field[0][1] === symbol && field[1][1] === symbol && field[2][1] === symbol) return symbol;
+    if (field[0][2] === symbol && field[1][2] === symbol && field[2][2] === symbol) return symbol;
+    if (field[0][0] === symbol && field[1][1] === symbol && field[2][2] === symbol) return symbol;
+    if (field[0][2] === symbol && field[1][1] === symbol && field[2][0] === symbol) return symbol;
+    return undefined;
+  }
+  return isWinner(position, 'X') || isWinner(position, '0');
 }
 
 
